@@ -8,12 +8,12 @@ function offButton() {
     xhttp.open("GET", "off", true);
     xhttp.send();
 }
-function timeAutoButton() {
+function valveButton() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "timeAuto", true);
     xhttp.send();
 }
-function tempAutoButton() {
+function tankButton() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "tempAuto", true);
     xhttp.send();

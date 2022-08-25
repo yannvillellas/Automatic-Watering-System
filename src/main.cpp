@@ -4,7 +4,9 @@
 const char *ssid = "";
 const char *password = "";
 const int valve = 2;
-const int tempSensor = 3;
+const int tank = 3;
+const int tempSensor = 4;
+bool tankIsReady = false;
 AsyncWebServer server(80);
 void setup()
 {
@@ -60,19 +62,28 @@ void setup()
   });
   server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request)
   {
-    digitalWrite(valve, HIGH);
+    if (tankIsReady)
+    {
+      digitalWrite(tank, HIGH);
+    }
+    else digitalWrite(valve, HIGH);
     request->send(200);
   });
   server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request)
   {
+    digitalWrite(tank, LOW);
     digitalWrite(valve, LOW);
     request->send(200);
   });
-  server.on("/timeAuto", HTTP_GET, [](AsyncWebServerRequest *request)
+  server.on("/valveButton", HTTP_GET, [](AsyncWebServerRequest *request)
   {
+    tankIsReady = false;
+    request->send(200);
   });
-  server.on("/tempAuto", HTTP_GET, [](AsyncWebServerRequest *request)
+  server.on("/tankButton", HTTP_GET, [](AsyncWebServerRequest *request)
   {
+    tankIsReady = true;
+    request->send(200);
   });
   server.begin();
   Serial.println("Serveur actif!");
