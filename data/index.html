@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <title>Arrosage automatique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="w3.css">
     <script type="text/javascript" src="script.js"></script>
-</head>
-<body class="w3-animate-opacity">
+  </head>
+
+  <body class="w3-animate-opacity">
     <div class="w3-card w3-blue w3-padding-small w3-center">
         <h1>Arrosage automatique</h1>
     </div>
+    
+    <hr>
+    
     <div class="w3-margin w3-center w3-card w3-padding-24">
-        <h3 class="w3-padding">Arrosage</h3>
-        <button onclick="onButton()" class="w3-button w3-green w3-xlarge w3-ripple w3-wide" style="width:40%;">ON</button>
-        <button onclick="offButton()" class="w3-button w3-red w3-xlarge w3-ripple w3-wide" style="width:40%;">OFF</button>
-        <br><br>
+      <span id='date-time'></span>
+        <script>
+          var dt = new Date();
+          document.getElementById('date-time').innerHTML=dt;
+        </script>
     </div>
+
+    <div class="w3-margin w3-center w3-card w3-padding-24">
+      <p><span id="tempValue">0</span>°C</p>
+    </div>
+
+    <hr>
+
+    <div class="w3-margin w3-center w3-card w3-padding-24">
+      <h3 class="w3-padding">Contrôle manuel de l'arrosage</h3>
+      <button onclick="onButton()" class="w3-button w3-round-xlarge w3-grey w3-hover-green w3-xlarge w3-wide" style="width:40%">ON</button>
+      <button onclick="offButton()" class="w3-button w3-round-xlarge w3-grey w3-hover-red w3-xlarge w3-wide" style="width:40%">OFF</button>
+      <br><br>
+    </div>
+
+    <hr>
+    
+    <div class="w3-margin w3-center w3-card w3-padding-24">
+      <h3 class="w3-padding">Contrôle automatique de l'arrosage</h3>
+      <button onclick="timeAutoButton()" class="w3-button w3-round-xlarge w3-grey w3-hover-blue w3-xlarge" style="width:40%">HEURE</button>
+      <button onclick="tempAutoButton()" class="w3-button w3-round-xlarge w3-grey w3-hover-blue w3-xlarge" style="width:40%">TEMPERATURE</button>
+      <br><br>
+    </div>
+  
+    <hr>
+    <hr>
+
     <div class="w3-padding w3-center">
-        <i><a href="https://github.com/yannvillellas" style="text-decoration: pink;">Yann Villellas</a></i>
+        <i><a href="https://github.com/yannvillellas" style="text-decoration: black;">Yann Villellas</a></i>
     </div>
-</body>
+  </body>
 </html>

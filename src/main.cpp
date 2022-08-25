@@ -1,14 +1,15 @@
 #include <Arduino.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
-const char *ssid = "Nom WiFi";
-const char *password = "Mot de passe";
+const char *ssid = "";
+const char *password = "";
 const int valve = 2;
+const int tempSensor = 3;
 AsyncWebServer server(80);
 void setup()
 {
   //----------------------------------------------------Serial
-  Serial.begin(115200);
+  Serial.begin(9600);
   Serial.println("\n");
   //----------------------------------------------------GPIO
   pinMode(valve, OUTPUT);
@@ -53,6 +54,10 @@ void setup()
   {
     request->send(SPIFFS, "/script.js", "text/javascript");
   });
+  server.on("/getTemp", HTTP_GET, [](AsyncWebServerRequest *request)
+  {
+    request->send(200, "text/plain", String(analogRead(tempSensor)));
+  });
   server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request)
   {
     digitalWrite(valve, HIGH);
@@ -62,6 +67,12 @@ void setup()
   {
     digitalWrite(valve, LOW);
     request->send(200);
+  });
+  server.on("/timeAuto", HTTP_GET, [](AsyncWebServerRequest *request)
+  {
+  });
+  server.on("/tempAuto", HTTP_GET, [](AsyncWebServerRequest *request)
+  {
   });
   server.begin();
   Serial.println("Serveur actif!");
