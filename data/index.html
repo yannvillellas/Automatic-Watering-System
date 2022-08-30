@@ -45,53 +45,14 @@
     </div>
 
     <hr>
-    <div class="w3-dropdown-click w3-margin w3-center w3-card w3-padding-24">
+    <div class="w3-margin w3-center w3-card w3-padding-24">
       <h3 class="w3-padding">Contrôle automatique de l'arrosage</h3>
-      <button onclick="myFunction()" class="w3-button w3-black">Choix de l'heure</button>
-      <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border w3-center">
-        <a href="#" class="w3-bar-item w3-button">19:00</a>
-        <a href="#" class="w3-bar-item w3-button">20:00</a>
-        <a href="#" class="w3-bar-item w3-button">21:00</a>
-        <a href="#" class="w3-bar-item w3-button">22:00</a>
-        <a href="#" class="w3-bar-item w3-button">23:00</a>
-        <a href="#" class="w3-bar-item w3-button">00:00</a>
-        <a href="#" class="w3-bar-item w3-button">01:00</a>
-        <a href="#" class="w3-bar-item w3-button">02:00</a>
-        <a href="#" class="w3-bar-item w3-button">03:00</a>
-        <a href="#" class="w3-bar-item w3-button">04:00</a>
-      </div>
+      <form action="/action_page.php">
+        <label for="appt">Choix de l'heure :</label>
+        <input type="time" id="appt" name="appt">
+        <input type="submit">
+      </form>
     </div>
-    
-    <script>
-    function myFunction() {
-      var x = document.getElementById("Demo");
-      if (x.className.indexOf("w3-show") == -1) { 
-        x.className += " w3-show";
-      } else {
-        x.className = x.className.replace(" w3-show", "");
-      }
-    }
-    </script>
-
-    <!--
-    <div class="w3-dropdown-click w3-margin w3-center w3-card w3-padding-24">
-      <h3 class="w3-padding">Contrôle automatique de l'arrosage</h3>
-      <button onclick="timeAutoButton()" class="w3-button w3-round-xlarge w3-grey w3-hover-blue w3-xlarge" style="width:40%">HEURE</button>
-      <div id="timeAuto" class="w3-dropdown-content w3-bar-block w3-border">
-        <a href="#" class="w3-bar-item w3-button">Link 1</a>
-        <a href="#" class="w3-bar-item w3-button">Link 2</a>
-        <a href="#" class="w3-bar-item w3-button">Link 3</a>
-      </div>
-    </div>
-    
-    <script>
-      function myFunction()
-      {
-        var x = document.getElementById("timeAuto");
-        if (x.className.indexOf("w3-show") == -1) {x.className += " w3-show";}
-        else {x.className = x.className.replace(" w3-show", "");}
-      }
-    </script>-->
     <hr>
     <hr>
 

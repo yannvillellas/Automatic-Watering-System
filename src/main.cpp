@@ -1,11 +1,10 @@
 #include <Arduino.h>
 #include <ESPAsyncWebServer.h>
 #include <SPIFFS.h>
-const char *ssid = "";
+const char *ssid = "Freebox-32805A";
 const char *password = "";
 const int valve = 2;
 const int tank = 3;
-const int tempSensor = 4;
 bool tankIsReady = false;
 AsyncWebServer server(80);
 void setup()
@@ -56,10 +55,6 @@ void setup()
   {
     request->send(SPIFFS, "/script.js", "text/javascript");
   });
-  server.on("/getTemp", HTTP_GET, [](AsyncWebServerRequest *request)
-  {
-    request->send(200, "text/plain", String(analogRead(tempSensor)));
-  });
   server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request)
   {
     if (tankIsReady)
@@ -67,6 +62,9 @@ void setup()
       digitalWrite(tank, HIGH);
     }
     else digitalWrite(valve, HIGH);
+    delay(900000);
+    digitalWrite(tank,LOW);
+    digitalWrite(valve,LOW);
     request->send(200);
   });
   server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request)
