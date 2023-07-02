@@ -10,12 +10,12 @@ function offButton() {
 }
 function valveButton() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "timeAuto", true);
+    xhttp.open("GET", "valve", true);
     xhttp.send();
 }
 function tankButton() {
     var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "tempAuto", true);
+    xhttp.open("GET", "tank", true);
     xhttp.send();
 }
 setInterval(function getData()
@@ -26,10 +26,23 @@ setInterval(function getData()
     {
         if(this.readyState == 4 && this.status == 200)
         {
-            document.getElementById("tempValue").innerHTML = this.responseText;
+            document.getElementById("stateValve").innerHTML = this.responseText;
         }
     };
-
-    xhttp.open("GET", "getTemp", true);
+    xhttp.open("GET", "readValve", true);
     xhttp.send();
-}, 10000);
+}, 2000);
+setInterval(function getData()
+{
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            document.getElementById("stateTank").innerHTML = this.responseText;  
+        }
+    };
+    xhttp.open("GET", "readTank", true);
+    xhttp.send();
+}, 2000);

@@ -8,13 +8,13 @@
   </head>
 
   <body class="w3-animate-opacity">
-    <div class="w3-card w3-blue w3-padding-small w3-center">
+    <div class="w3-card w3-blue w3-padding-small w3-center w3-round-large">
         <h1>Arrosage automatique</h1>
     </div>
     
     <hr>
     
-    <div class="w3-margin w3-center w3-card w3-padding-24">
+    <div class="w3-margin w3-center w3-card w3-padding-24 w3-round-large">
       <span id='date-time'></span>
         <script>
           var dt = new Date();
@@ -22,31 +22,36 @@
         </script>
     </div>
 
-    <div class="w3-margin w3-center w3-card w3-padding-24">
-      <p><span id="tempValue">0</span>°C</p>
+    <div class="w3-margin w3-center w3-card w3-round-large w3-padding-24">
+      <h3>État actuel</h3>
+      <p>
+        Eau courante : <span id="stateValve">ERROR</span>
+        <br>
+        Réservoir : <span id="stateTank">ERROR</span>
+      </p>
     </div>
 
     <hr>
 
-    <div class="w3-margin w3-center w3-card w3-padding-24">
-      <h3 class="w3-padding">Contrôle manuel de l'arrosage</h3>
-      <button onclick="onButton()" class="w3-button w3-round-xlarge w3-pale-green w3-hover-green w3-xlarge w3-wide" style="width:40%">ON</button>
-      <button onclick="offButton()" class="w3-button w3-round-xlarge w3-pale-red w3-hover-red w3-xlarge w3-wide" style="width:40%">OFF</button>
+    <div class="w3-margin w3-center w3-card w3-padding-24 w3-round-large">
+      <h3 class="w3-padding">Contrôle manuel</h3>
+      <button onclick="onButton()" class="w3-button w3-round-xxlarge w3-pale-green w3-hover-green w3-xlarge w3-wide" style="width:40%">ON</button>
+      <button onclick="offButton()" class="w3-button w3-round-xxlarge w3-pale-red w3-hover-red w3-xlarge w3-wide" style="width:40%">OFF</button>
       <br><br>
     </div>
 
     <hr>
 
-    <div class="w3-margin w3-center w3-card w3-padding-24">
-      <h3 class="w3-padding">Contrôle de la source d'arrosage</h3>
-      <button onclick="valveButton()" class="w3-button w3-round-xlarge w3-pale-blue w3-hover-light-blue w3-xlarge" style="width:40%">Eau courante</button>
-      <button onclick="tankButton()" class="w3-button w3-round-xlarge w3-pale-yellow w3-hover-yellow w3-xlarge" style="width:40%">Réservoir</button>
+    <div class="w3-margin w3-center w3-card w3-padding-24 w3-round-large">
+      <h3 class="w3-padding">Contrôle de la source</h3>
+      <button onclick="valveButton()" class="w3-button w3-round-xxlarge w3-pale-blue w3-hover-light-blue w3-xlarge" style="width:40%">Eau courante</button>
+      <button onclick="tankButton()" class="w3-button w3-round-xxlarge w3-pale-yellow w3-hover-yellow w3-xlarge" style="width:40%">Réservoir</button>
       <br><br>
     </div>
 
     <hr>
-    <div class="w3-margin w3-center w3-card w3-padding-24">
-      <h3 class="w3-padding">Contrôle automatique de l'arrosage</h3>
+    <div class="w3-margin w3-center w3-card w3-padding-24 w3-round-large">
+      <h3 class="w3-padding">Contrôle automatique</h3>
       <form action="/action_page.php">
         <label for="appt">Choix de l'heure :</label>
         <input type="time" id="appt" name="appt">
@@ -57,7 +62,7 @@
     <hr>
 
     <div class="w3-padding w3-center">
-        <i><a href="https://github.com/yannvillellas" style="text-decoration: black;">Yann Villellas</a></i>
+        <i><a href="https://github.com/yannvillellas">Yann Villellas</a></i>
     </div>
   </body>
 </html>

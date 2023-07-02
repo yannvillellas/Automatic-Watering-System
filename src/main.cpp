@@ -83,6 +83,14 @@ void setup()
     tankIsReady = true;
     request->send(200);
   });
+  server.on("/readValve", HTTP_GET, [](AsyncWebServerRequest *request)
+  {
+    request->send(200, "text/plain", String(digitalRead(valve)));
+  });
+  server.on("/readTank", HTTP_GET, [](AsyncWebServerRequest *request)
+  {
+    request->send(200, "text/plain", String(digitalRead(tank)));
+  });
   server.begin();
   Serial.println("Serveur actif!");
 }
